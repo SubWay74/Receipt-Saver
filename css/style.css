@@ -223,6 +223,7 @@ nav .logo img {
         justify-content: center;
     }
     .container img {
+        display: none;
         width: 80px;
         height: 150px;
     }

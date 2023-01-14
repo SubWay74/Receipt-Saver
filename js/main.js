@@ -4,8 +4,6 @@ let topScroll;
 function cursorMove(e) {
   cursor.style.top = `${e.pageY}px`
   cursor.style.left = `${e.pageX}px`
-  console.log(e.clientY)
-  topScroll = e.pageY;
 }
 
 window.addEventListener("mousemove", cursorMove);
@@ -33,47 +31,69 @@ const maintxt = document.querySelector(".main-txt");
 const mainVid = document.getElementById("mainvideo");
 
 
+const midea = window.matchMedia("(max-width: 900px)")
 
-function all() {
+midea.addEventListener("change", () => {
+  if(midea.matches) {
+    console.log("mob")
+  } else {
+    
+    console.log("web ")
+  }
+})
+
+function reciptAnimation() {
   
   setTimeout(() => {
-    one.style.top = "30%";
-    two.style.top = "23%";
-    three.style.right = "25%";
+    if(!midea.matches) {
+      one.style.top = "30%";
+      two.style.top = "23%";
+      three.style.right = "25%";
+    } else {
+      mainVid.play();
+    }
     maintxt.textContent += "Never";
   }, 1000);
   setTimeout(() => {
-    one.style.left = "30%";
-    two.style.right = "30%";
-    three.style.bottom = "41%";
+    if(!midea.matches) {
+      one.style.left = "30%";
+      two.style.right = "30%";
+      three.style.bottom = "41%";
+    }
     maintxt.textContent += " lose";
   }, 2000);
   setTimeout(() => {
-    one.style.top = "30%";
-    one.style.left = "41%";
-    two.style.top = "37%";
-    two.style.right = "45%";
-    three.style.bottom = "50%";
-    three.style.right = "45%";
+    if(!midea.matches) {
+      one.style.top = "30%";
+      one.style.left = "41%";
+      two.style.top = "37%";
+      two.style.right = "45%";
+      three.style.bottom = "50%";
+      three.style.right = "45%";
+    }
     maintxt.textContent += " your";
   }, 3000);
   setTimeout(() => {
-    one.style.opacity = 0;
-    two.style.opacity = 0;
-    three.style.opacity = 0;
+    if(!midea.matches) {
+      one.style.opacity = 0;
+      two.style.opacity = 0;
+      three.style.opacity = 0;
+      mainVid.play();
+    }
     maintxt.textContent += " Receipt";
-    mainVid.play();
   }, 4000);
   setTimeout(() => {
-    one.style.display = "none";
-    two.style.display = "none";
-    three.style.display = "none";
+    if(!midea.matches) {
+      one.style.display = "none";
+      two.style.display = "none";
+      three.style.display = "none";
+    }
     maintxt.textContent += " again";
 
   }, 5000);
 }
 
-all()
+reciptAnimation()
 
 const partnersUl = document.getElementById("partners-list");
 
@@ -119,4 +139,6 @@ bundelLists.forEach(list => {
     list.classList.add("list-hovered");
   })
 });
+
+
 
