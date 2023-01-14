@@ -68,11 +68,10 @@ nav .logo {
 }
 
 nav .logo h1 {
-    margin-left: -25px;
+    margin-left: 10px;
 }
 
 nav .logo img {
-    width: 115px;
     height: 55px;
 }
 
